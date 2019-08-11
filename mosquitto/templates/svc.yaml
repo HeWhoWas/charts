@@ -8,10 +8,10 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }} 
 spec:
-  type: ClusterIP
-  clusterIP: None
+  type: NodePort
   ports:
   - name: headless
     port: 1883
+    nodePort: 31883
   selector:
     app: {{ template "fullname" . }}
